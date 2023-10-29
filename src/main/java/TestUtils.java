@@ -89,6 +89,8 @@ public class TestUtils {
     }
 
     public static void clickBlogButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[@class='menu-element__name' and text()='BLOG']")));
         WebElement blogButton = driver.findElement(
                 By.xpath("//span[@class='menu-element__name' and text()='BLOG']"));
         blogButton.click();
@@ -103,7 +105,6 @@ public class TestUtils {
     }
 
     public static void clickingMakaronyButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Makarony")));
         LOGGER.info("'MAKARONY' button is visible to click. Page loaded correctly.");
 
